@@ -1,3 +1,4 @@
+%CODIGO DE FACUNDO PESSACG!!!
 function pos = CD_Scorbot(q1,q2,q3,q4,q5)
 format short;
 % syms q1 q2 q3 q4 q5;
