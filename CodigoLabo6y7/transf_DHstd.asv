@@ -1,0 +1,30 @@
+%CODIGO DE FACUNDO PESSACG!!!
+%DENAVIT    Matriz de Transformación Homogénea
+%Esta función devuelve la matriz de transformación homogénea de 4x4, a
+%partir de los parámetros de D-H: d_i, a_i, alpha_i, theta_i.
+function [T] = transf_DHstd(param)
+%clear
+%syms q1 q2 q3 ;
+
+alfa=param.alfa;
+a=param.a;
+d=param.d;
+q=param.q;
+
+
+%cos(q)=cos(q);
+%sin(q)=sin(q);
+%cos(alpha)=cos(alfa);
+%sin(alpha)=sin(alfa);
+%prefiero ver todo, no cansa y clarifica (?)
+if (-1*1e-10 < cos(alfa)) && (cos(alfa)< 1e-10),cos(alpha)=0;end
+if (-1*1e-10 < sin(alfa)) && (sin(alfa)< 1e-10),sin(alpha)=0;end
+
+T=[cos(q) -sin(q)*cos(alpha)   sin(q)*sin(alpha)   a*cos(q);...
+   sin(q)  cos(q)*cos(alpha)  -cos(q)*sin(alpha)   a*sin(q);...
+   0   sin(alpha)         cos(alpha)      d;...
+   0    0                0      1];
+
+
+ end
+
