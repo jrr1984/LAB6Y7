@@ -1,4 +1,7 @@
 %CODIGO DE FACUNDO PESSACG!!!
+%DENAVIT    Matriz de Transformación Homogénea
+%Esta función devuelve la matriz de transformación homogénea de 4x4, a
+%partir de los parámetros de D-H: d_i, a_i, alpha_i, theta_i.
 function [T] = transf_DHstd(param)
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
@@ -27,4 +30,3 @@ T=[cq -sq*calfa   sq*salfa   a*cq;...
 
 
  end
-

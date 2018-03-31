@@ -1,11 +1,21 @@
 %CODIGO DE FACUNDO PESSACG!!!
+%Este programita necesita del programa: "transf_DHstd.m"
+%sintaxis para definir una función en MATLAB:
+%function variables_salida = nombre_funcion(variables_entrada)
+%    sentencias
+%end
+
+%Obs1: nombre_funcion debe coincidir con el nombre del archivo .m
+
 function pos = CD_Scorbot(q1,q2,q3,q4,q5)
-format short;
-% syms q1 q2 q3 q4 q5;
-%q1=0; q2=pi/4; q3=pi/4; q4=pi/4; q5=pi/4;
+format short; %es el formato por default en que devuelve los datos la consola, 
+%que tiene 4 cifras significativas dspes del punto decimal.
+
+syms q1 q2 q3 q4 q5;
+q1=0; q2=pi/4; q3=pi/4; q4=pi/4; q5=pi/4;
 
 %Parametros intrinsecos del Robot
-d1 = 349;
+d1 = 349; %en cm
 a1 = 16;
 a2 = 221;
 a3 = 221;
@@ -51,6 +61,7 @@ pos(2)= sind(q1)*(a1 + a2.*cosd(q2) + a3.*cosd(q2 + q3) + d5.*cosd(q2 + q3 + q4)
 pos(3)= d1 + a2.*sind(q2) + a3.*sind(q2 + q3) + d5.*sind(q2 + q3 + q4) ;   %z
 pos(4)= q2 + q3 + q4;    %qpich
 pos(5)= q5;          %qroll
+%no podemos controlar yaw (alpha)
 
 end
 
