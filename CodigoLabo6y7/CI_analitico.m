@@ -1,3 +1,4 @@
+%CODIGO DE FACUNDO PESSACG!!!
 %Facundo Pessacg.
 %Cinematica inversa para el Scorbot V-ER Plus. En este codigo tengo que
 %introducir las coordenadas a las que quiero que valla el robot (x,y,z) y la

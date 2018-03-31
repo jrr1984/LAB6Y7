@@ -1,3 +1,4 @@
+%CODIGO DE FACUNDO PESSACG!!!
 function Q=CI_analH(x, y, z, qpich,qyaw, ca, make_plot)
 %Cinematica inversa para el Scorbot V-ER Plus. En este codigo tengo que
 %introducir las coordenadas a las que quiero que valla el robot (x,y,z) y la
