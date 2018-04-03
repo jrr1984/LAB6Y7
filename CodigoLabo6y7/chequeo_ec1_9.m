@@ -1,8 +1,8 @@
 %CODIGO DE FACUNDO PESSACG!!!
 syms q1 q2 q3 q4 q5;
 syms a1 a2 a3 d1 d5;
-%elegimos una configuración inicial del brazo (q_i son los ángulos
-%iniciales de cada articulación)
+%elegimos una configuraciï¿½n inicial del brazo (q_i son los ï¿½ngulos
+%iniciales de cada articulaciï¿½n)
 %q1=0; q2=pi/4; q3=pi/4; q4=pi/4; q5=pi/4;
 
 %Parametros intrinsecos del Robot
@@ -21,13 +21,13 @@ p4.d=0  ; p4.a=0   ; p4.alpha=pi/2 ;p4.q=q4;
 p5.d=d5 ; p5.a=0   ; p5.alpha=0    ;p5.q=q5;
 %  
 % %Construyo las transformaciones de cada junta. Esto es, computamos las
-% matrices de transformación de la trama i-1 a la trama i.
+% matrices de transformaciï¿½n de la trama i-1 a la trama i.
 T0_1=transf_DHstd(p1);
 T1_2=transf_DHstd(p2);
 T2_3=transf_DHstd(p3);
 T3_4=transf_DHstd(p4);
-%T3_4=simplify(transf_DHstd(p4)); No sé para que está.. tiene numeritos la
-%matriz adentro.. tira error al correrlo. Más adelante cobra sentido esto
+%T3_4=simplify(transf_DHstd(p4)); No sï¿½ para que estï¿½.. tiene numeritos la
+%matriz adentro.. tira error al correrlo. Mï¿½s adelante cobra sentido esto
 %al 'redondear los numeros'..
 T4_5=transf_DHstd(p5);
 % 
@@ -37,12 +37,12 @@ T4_5=transf_DHstd(p5);
 %Es decir, ..., evaluamos las matrices en numeritos concretos y elegimos
 %con cuantas cifras lo queremos. REDONDEA TODO A NUMEROS + PUBLICABLES (?)
 %correr las matrices antes de aplicarles la vpa, comparar el antes y el
-%después..
-T0_1=vpa(T0_1);
-T1_2=vpa(T1_2);
-T2_3=vpa(T2_3);
-T3_4=vpa(T3_4);
-T4_5=vpa(T4_5);
+%despuï¿½s..
+% T0_1=vpa(T0_1);
+% T1_2=vpa(T1_2);
+% T2_3=vpa(T2_3);
+% T3_4=vpa(T3_4);
+% T4_5=vpa(T4_5);
 % 
 % %hago primero esta multiplicacion xq es RRR (RRR???)
 T1_4=T1_2*T2_3*T3_4;
@@ -52,21 +52,20 @@ T0_5=T0_1*T1_4*T4_5;
 T0_5=simplify(T0_1*T1_4*T4_5);  
 %La matriz que relaciona la trama base con la del efector final, queda un choclazo importante..
 %debe ser por eso la magia de abajo (?).
-T0_5=subs(T0_5,{q1,q2,q3,q4,q5},{q1_r,q2_r,q3_r,q4_r,q5_r});
+% T0_5=subs(T0_5,{q1,q2,q3,q4,q5},{q1_r,q2_r,q3_r,q4_r,q5_r});
 %que hace subs? agarra la T0_5 y reemplaza {q1,q2,q3,q4,q5} POR
 %{q1_r,q2_r,q3_r,q4_r,q5_r}
 %subs no lo pudimos utilizar, xq el programa no sabe quienes son los qi_r
-%que no están definidos en ningún lado.
-%pareciera que todo el calculo originalmente fuera simbólico, que un día lo
-%hicieron numérico pero que estas variables qi_r son las variables que
+%que no estï¿½n definidos en ningï¿½n lado.
+%pareciera que todo el calculo originalmente fuera simbï¿½lico, que un dï¿½a lo
+%hicieron numï¿½rico pero que estas variables qi_r son las variables que
 %llevan la trama herramienta agregada a la trama base (?).
-%DESESITAMOS ESE SUBS XQ NO PODEMOS SEGUIR SINO..
 
 %Lo de arriba no lo borro x si sirve para volver a pensarlo. Ahora bien,
-%debido a las ecuaciones que están abajo, la TRAMA HERRAMIENTA tendría que
+%debido a las ecuaciones que estï¿½n abajo, la TRAMA HERRAMIENTA tendrï¿½a que
 %haber sido incluida en alguna parte del calculo pues aparecen los
-%resultados de la ecuación (1.19)
-%Abajo están los resultados de las ecuaciones (1.10) y (1.19)
+%resultados de la ecuaciï¿½n (1.19)
+%Abajo estï¿½n los resultados de las ecuaciones (1.10) y (1.19)
 pos(1)=T0_5(1,4);   %x
 pos(2)=T0_5(2,4);   %y
 pos(3)=T0_5(3,4);   %z
