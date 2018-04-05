@@ -11,4 +11,3 @@ Ax = [cos(phi)              -sin(phi)              0             a
       sin(phi)*sin(alpha)   cos(phi)*sin(alpha)    cos(alpha)    cos(alpha)*d;
       0                     0                      0             1];
 end
-
