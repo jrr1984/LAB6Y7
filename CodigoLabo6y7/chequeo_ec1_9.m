@@ -1,6 +1,6 @@
 %CODIGO DE FACUNDO PESSACG!!!
 syms q1 q2 q3 q4 q5;
-syms a1 a2 a3 d1 d5;
+syms a1 a2 a3 d1 d5 pi;
 %elegimos una configuraci�n inicial del brazo (q_i son los �ngulos
 %iniciales de cada articulaci�n)
 %q1=0; q2=pi/4; q3=pi/4; q4=pi/4; q5=pi/4;
@@ -17,7 +17,7 @@ syms a1 a2 a3 d1 d5;
 p1.d=d1 ; p1.a=a1 ; p1.alpha=pi/2 ;p1.q=q1;
 p2.d=0  ; p2.a=a2  ; p2.alpha=0    ;p2.q=q2;
 p3.d=0  ; p3.a=a3  ; p3.alpha=0    ;p3.q=q3;
-p4.d=0  ; p4.a=0   ; p4.alpha=pi/2 ;p4.q=q4;
+p4.d=0  ; p4.a=0   ; p4.alpha=pi/2 ;p4.q=q4+pi/2;
 p5.d=d5 ; p5.a=0   ; p5.alpha=0    ;p5.q=q5;
 %  
 % %Construyo las transformaciones de cada junta. Esto es, computamos las
@@ -50,6 +50,7 @@ T1_4=simplify(T1_2*T2_3*T3_4); %ahora no hay problema con simplify
 T1_5=simplify(T1_4*T4_5);
 T0_5=T0_1*T1_4*T4_5;  
 T0_5=simplify(T0_1*T1_4*T4_5);  
+T0_5
 %La matriz que relaciona la trama base con la del efector final, queda un choclazo importante..
 %debe ser por eso la magia de abajo (?).
 % T0_5=subs(T0_5,{q1,q2,q3,q4,q5},{q1_r,q2_r,q3_r,q4_r,q5_r});
@@ -60,6 +61,7 @@ T0_5=simplify(T0_1*T1_4*T4_5);
 %pareciera que todo el calculo originalmente fuera simb�lico, que un d�a lo
 %hicieron num�rico pero que estas variables qi_r son las variables que
 %llevan la trama herramienta agregada a la trama base (?).
+%DESESITAMOS ESE SUBS XQ NO PODEMOS SEGUIR SINO..
 
 %Lo de arriba no lo borro x si sirve para volver a pensarlo. Ahora bien,
 %debido a las ecuaciones que est�n abajo, la TRAMA HERRAMIENTA tendr�a que

@@ -9,7 +9,7 @@ L(3) = Link([ 0     0      0.220   0      0], 'stdDH');
 L(4) = Link([ 0     0      0       pi/2   0], 'stdDH');
 L(5) = Link([ 0     0.137  0       0      0], 'stdDH');
 
-scorbot_v5plus = SerialLink(L, 'name', 'scorbot_v5plus')
+scorbot_v5plus = SerialLink(L, 'name', 'scorbot_v5plus');
 
 %Grafico estado robot para q1,q2,q3,q4,q5
 q1 = 0; q2 = 0; q3 = 0;q4 = 0;q5 = 180;
