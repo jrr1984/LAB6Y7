@@ -91,8 +91,10 @@ function robot_model(joint_angles,joint_angles2, pose, footholds)
     
     %footholds are the foottips that are in the swing or support phase.
     %plot foottips
-         
-        elseif footholds(leg+1) == 1
+            plot3(foottip_poses(1,footholds==1),foottip_poses(2,footholds==1),foottip_poses(3,footholds==1),'g*','Linewidth',3)
+            plot3(foottip_poses(1,footholds==0),foottip_poses(2,footholds==0),foottip_poses(3,footholds==0),'r*','Linewidth',3)
+        
+        elseif footholds == 1
             Ai = P*[cos(body_params(leg+1,1)), -sin(body_params(leg+1,1)), 0, body_params(leg+1,2);
                 sin(body_params(leg+1,1)), cos(body_params(leg+1,1)), 0, body_params(leg+1,3);
                 0, 0, 1, 0;
@@ -139,8 +141,8 @@ function robot_model(joint_angles,joint_angles2, pose, footholds)
     
     %footholds are the foottips that are in the swing or support phase.
     %plot foottips
-           % plot3(foottip_poses(1,footholds==1),foottip_poses(2,footholds==1),foottip_poses(3,footholds==1),'g*','Linewidth',3)
-           % plot3(foottip_poses(1,footholds==0),foottip_poses(2,footholds==0),foottip_poses(3,footholds==0),'r*','Linewidth',3)
+            plot3(foottip_poses(1,footholds==1),foottip_poses(2,footholds==1),foottip_poses(3,footholds==1),'g*','Linewidth',3)
+            plot3(foottip_poses(1,footholds==0),foottip_poses(2,footholds==0),foottip_poses(3,footholds==0),'r*','Linewidth',3)
         end
     end
 end

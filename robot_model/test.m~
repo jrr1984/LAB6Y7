@@ -33,6 +33,11 @@ for coxa = 0:pi/8:pi/2
     %tibia joints
     joint_angles([5,6,11,12,17,18]) = -coxa;
     
+    joint_angles([1,2,7,8,13,14]) = 0;
+    %femur joints
+    joint_angles([3,4,9,10,15,16]) = 0;
+    %tibia joints
+    joint_angles([5,6,11,12,17,18]) = 0;
     %kinematic model of the robot
     robot_model(joint_angles,joint_angles2,robot_pose,footholds)
     

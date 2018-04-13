@@ -1,8 +1,8 @@
 function [R] = r_matrix(yaw, pitch, roll)
     
-    a = roll; %rotation around x axis
-    b = pitch; %rotation around y axis
-    c = yaw; %rotation around z axis
+    a = roll; %rotation around x a
+    b = pitch;
+    c = yaw;
 
     R_a = [1,      0,       0;
            0, cos(a), -sin(a);
