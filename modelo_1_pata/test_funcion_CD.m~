@@ -1,0 +1,23 @@
+clear all;
+clc;
+
+theta1 = 0; theta2 = 0;    theta3 = 0;
+
+a1 = 52; a2 = 66; a3 = 138;
+
+
+alpha1 = pi/2; alpha1 = 0; alpha3 = 0;
+
+d1 = 0; d2 =0; d3=0;
+
+theta1 = p1.theta; theta2 = p2.theta; theta3 = p3.theta;
+
+a1 = p1.a; a2 = p2.a; a3 = p3.a;
+
+alpha1=p1.alpha; alpha2=p2.alpha; alpha3=p3.alpha;
+
+d1 = p1.d; d2 = p2.d; d3 = p3.d;
+
+pose_final_foottip = [0,0,0,1];
+
+forward_kinematics(p1,p2,p3,pose_final_foottip)
