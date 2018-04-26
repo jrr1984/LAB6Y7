@@ -13,7 +13,7 @@ syms q1 q2 q3 q4 q5;
 
 %Parametro que le tengo que dar 
 %trabajo en mm
-x = 400;
+x = 0;
 y = 00;
 z = 400; 
 qpich = 0; % -40<qpich<220 
