@@ -20,7 +20,7 @@ xa = 0.1206; %p_x links 1,2, (-3),(-4)
 %                   5*pi/4, -xa,-ya;
 %                     pi/2,   0, yb;
 %                   3*pi/2,   0,-yb];
-%Defino los parametros de DH
+%Definimos los parametros de DH
 a1 = 0.052;
 a2 = 0.066;
 a3 = 0.138;
@@ -32,7 +32,7 @@ m3.d=0; m3.a=a3  ; m3.alfa=0    ;m3.theta=theta3 - 0.81;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CINEMATICA INVERSA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Calculo q1 que es qroll
+%Calculamos q1 que es qroll
 theta1 = atan2(x - xa,y - ya) - pi/4;
 
 
@@ -43,7 +43,7 @@ raiz = sqrt(coords_femur(1).*coords_femur(1) + coords_femur(2).*coords_femur(2) 
 theta2 = acos((a2^2 - a3^2 + norma)/(2*a2*raiz)) - atan2(coords_femur(2),coords_femur(1)) - 0.22;
 theta3 = pi - acos((a2^2 + a3^2 - norma)/(2*a2*a3)) - 0.81;
 
-%muestro los angulos
+%mostramos los angulos
 Thetas = [theta1,theta2,theta3];
 
 
