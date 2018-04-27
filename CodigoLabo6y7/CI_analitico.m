@@ -53,7 +53,7 @@ cr=cosd(qroll); sr=sind(qroll);
 
 Te = [cy*cp	cy*sp*sr-sy*cr	cy*sp*cr+sy*sr;...
 	  sy*cp	sy*sp*sr+cy*cr	sy*sp*cr-cy*sr;...
-	  -sp	cp*sr			cp*cr		 ]
+	  -sp	cp*sr			cp*cr		 ];
 R= rotx(pi)*Te;				%Tengo que multiplicar por la rotx porq el eje z del EF esta invertido respecto del mundo.
 Te = [R [x y z]'; zeros(1,3) 1];
 
@@ -66,16 +66,16 @@ c234=-az;
 s234=(ax*c1+ay*s1);
 q234=atan2(s234,c234);
 
-q234=q234*180/pi
+q234=q234*180/pi;
 
 %Calculo q3
-k1=px*c1-p1.a+py*s1-p5.d*s234
-k2=pz-p1.d+p5.d*c234
+k1=px*c1-p1.a+py*s1-p5.d*s234;
+k2=pz-p1.d+p5.d*c234;
 
 c3=(k1^2+k2^2-(p2.a)^2-(p3.a)^2)/(2*p2.a*p3.a);
 q3=acos(c3);
 if (-1*1e-4 < q3) && (q3< 1e-4),q3=0;end
-q3=q3*180/pi
+q3=q3*180/pi;
 %Aca tengo las dos soluciones q3 y -q3, las elijo en funcion de ca.
 if (ca==1) q3=-q3;end
 s3=sind(q3);

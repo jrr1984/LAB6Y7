@@ -1,6 +1,5 @@
-%CODIGO DE FACUNDO PESSACG!!!
 %Este programita necesita del programa: "transf_DHstd.m"
-%sintaxis para definir una función en MATLAB:
+%sintaxis para definir una funciï¿½n en MATLAB:
 %function variables_salida = nombre_funcion(variables_entrada)
 %    sentencias
 %end
@@ -12,8 +11,8 @@ format short; %es el formato por default en que devuelve los datos la consola,
 %que tiene 4 cifras significativas dspes del punto decimal.
 
 %syms q1 q2 q3 q4 q5;
-%elegimos una configuración inicial del brazo (q_i son los ángulos
-%iniciales de cada articulación)
+%elegimos una configuraciï¿½n inicial del brazo (q_i son los ï¿½ngulos
+%iniciales de cada articulaciï¿½n)
 %q1=0; q2=pi/4; q3=pi/4; q4=pi/4; q5=pi/4;
 
 %Parametros intrinsecos del Robot
@@ -32,7 +31,7 @@ d5 = 145;
 % p5.d=d5 ; p5.a=0   ; p5.alpha=0    ;p5.q=q5;
 %  
 % %Construyo las transformaciones de cada junta. Esto es, computamos las
-% matrices de transformación de la trama i-1 a la trama i.
+% matrices de transformaciï¿½n de la trama i-1 a la trama i.
 % T0_1=transf_DHstd(p1);
 % T1_2=transf_DHstd(p2);
 % T2_3=transf_DHstd(p3);

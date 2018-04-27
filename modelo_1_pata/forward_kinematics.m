@@ -1,4 +1,4 @@
-function [ pose_foottip ] = forward_kinematics(p1,p2,p3,input_thetas_4)
+function [ foottip_pose_from_universe_coordinates] = forward_kinematics(p1,p2,p3)
 % FORWARD KINEMATICS
 %INPUT: P1, P2 AND P3 ARE STRUCTS THAT INDICATES THE DH PARAMETERS OF THE
 %LTH LINK
@@ -26,6 +26,7 @@ T0_3 = T0_1*T1_2*T2_3;
 ya = 60.5; %p_y links 1, (-2),3, (-4)
 yb = 100.5; %p_y links 5,6
 xa = 120.6; %p_x links 1,2, (-3),(-4)
+% syms xa ya yb;
 body_params = [  pi/4,  xa, ya; %beta, p_x , p_y FIRST LEG
                    7*pi/4,  xa,-ya; %2ND LEG
                    3*pi/4, -xa, ya; %3RD LEG
@@ -38,12 +39,27 @@ P_l = [cos(body_params(1,1)), -sin(body_params(1,1)) , 0 , body_params(1,2);
        0                    ,   0                  , 0 ,    1];
        
 %WE CHECK EQ (2)
-pose_final_foottip = input_thetas_4';
+% pose_final_foottip = input_thetas_4';
 
 %pose_final_foottip_desde_TIERRA= P_l*T0_3*T3_FOOTTIP*pose_final_foottip;
-pose_foottip= P_l*T0_3*pose_final_foottip;
+% pose_foottip= P_l*T0_3*pose_final_foottip;
+p1.alpha = pi/2; p2.alpha = 0; p3.alpha = 0;
+T0_4 = P_l*T0_3;
+foottip_pose_from_univ_UNROTATED = [T0_4(1,4), T0_4(2,4),T0_4(3,4)];
+q_gamma_roll_en_x = pi/2;
+q_beta_pitch_en_y = -(theta2 + theta3);
+q_alpha_yaw_en_z = theta1 + pi/4;
+angles_of_the_world = [q_gamma_roll_en_x,q_beta_pitch_en_y,q_alpha_yaw_en_z];
+%WE GOT THE TRANSLATION PART ALREADY MADE. NOW WE GOTTA ROTATE THE FOOTTIP
+%ORIENTATION TO MATCH THE UNIVERSE COORDINATES REFERENCE FRAME.
 
-
-
+%We create a general matrix rotation.
+% syms alpha beta gamma;
+% 
+% R_alpha_beta_gamma = [cos(alpha)*cos(beta) , cos(alpha)*sin(beta)*sin(gamma) - sin(alpha)*cos(gamma), cos(alpha)*cos(gamma)*sin(beta) + sin(alpha)*sin(gamma);
+%                       sin(alpha)*cos(beta) , sin(alpha)*sin(beta)*sin(gamma) + cos(alpha)*cos(gamma), sin(alpha)*cos(gamma)*sin(beta) - cos(alpha)*sin(gamma);
+%                       -sin(beta)           , cos(beta)*sin(gamma)   , cos(beta)*cos(gamma)];
+                
+foottip_pose_from_universe_coordinates = [foottip_pose_from_univ_UNROTATED,angles_of_the_world];
 end
 

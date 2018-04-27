@@ -28,9 +28,9 @@ function robot_model(joint_angles,joint_angles2, pose, footholds)
                    5*pi/4, -xa,-ya;
                      pi/2,   0, yb;
                    3*pi/2,   0,-yb];
-    %model parameters
-    weight = 2.5;
-    g_const = 9.81;
+%     %model parameters
+%     weight = 2.5;
+%     g_const = 9.81;
     
     %body pose
     P = eye(4); %identity matrix 4x4

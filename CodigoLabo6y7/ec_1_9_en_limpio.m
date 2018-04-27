@@ -1,3 +1,4 @@
+clear all;clc;
 syms q1 q2 q3 q4 q5;
 syms a1 a2 a3 d1 d5;
 
@@ -28,3 +29,8 @@ pos(5)= q5;       %qroll
 %construimos la R_h que consiste de una rotación en z de 180° y de una
 %rotación en el eje y de pi/2. La multiplicación de las matrices de
 %rotación se realiza en el orden en el que se las hace.
+T_h = [ 0, 0 , 1 ,0;
+        0, -1, 0, 0;
+        1 , 0, 0 ,0;
+        0,0,0,1];
+T0_h = simplify(T0_5*T_h);
