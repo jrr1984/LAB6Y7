@@ -1,7 +1,7 @@
 clear all;
 clc;
 
-theta1 = 10*pi/180; theta2 = 50*pi/180;    theta3 = -50*pi/180;
+theta1 = 20*pi/180; theta2 = 100*pi/180;    theta3 = -50*pi/180;
 theta1_off = 0; theta2_off = -0.22; theta3_off = -0.81;
 a1 = 52; a2 = 66; a3 = 138;
 

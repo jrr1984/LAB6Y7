@@ -3,7 +3,7 @@ function [ Thetas ] = inv_hexapodo()
 % CINEMATICA INVERSA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Parametros intrisnsecos del Robot
-x= 90;y = -280; z = -65;
+x= 0;y = -280; z = -65;
 yb = -100.5; %p_y links 5,6
 xa = 0; %p_x links 1,2, (-3),(-4)
 
