@@ -28,11 +28,11 @@ footholds = [1,1,1,1,1,1];
 for coxa = 0:pi/8:pi/2  
     %testing movement of all joints
     %coxa joints
-    joint_angles([1]) = ;
+    joint_angles([1]) = 10;
     %femur joints
-    joint_angles([3]) = 0;
+    joint_angles([3]) = 10;
     %tibia joints
-    joint_angles([5]) = 0;
+    joint_angles([5]) = 10;
     %kinematic model of the robot
     robot_model(joint_angles,joint_angles2,robot_pose,footholds)
     %plot parameters

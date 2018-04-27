@@ -3,11 +3,12 @@
 syms theta1 theta2 theta3;
 syms a1 a2 a3 d5;
 syms theta1_off theta2_off theta3_off;
-theta1 = 0; theta2 = 0;    theta3 = 0;
+theta1 = ; theta2 = 2.6376;    theta3 = 1.4158;
 a1 = 52; a2 = 66; a3 = 138; %milimeters
+theta2_off = -0.22; theta3_off = -0.81;
 p1.d=0 ; p1.a=a1 ; p1.alpha=pi/2 ;p1.theta=theta1;
-p2.d=0  ; p2.a=a2  ; p2.alpha=0    ;p2.theta=theta2 - 0.22;
-p3.d=0  ; p3.a=a3  ; p3.alpha=0    ;p3.theta=theta3 - 0.81;
+p2.d=0  ; p2.a=a2  ; p2.alpha=0    ;p2.theta=theta2;
+p3.d=0  ; p3.a=a3  ; p3.alpha=0    ;p3.theta=theta3;
 p4.d=0  ; p4.a=0   ; p4.alpha=pi/2 ;p4.theta=-pi/2;
 p1.theta_off = theta1_off; p2.theta_off = theta2_off; p3.theta_off =theta3_off;
 %WE MAKE A TEST!
