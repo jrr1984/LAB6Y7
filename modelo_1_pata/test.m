@@ -25,14 +25,14 @@ footholds = [1,1,1,1,1,1];
 %It constitutes about 40% of gait cycle. 
 %SUPPORT PHASE: The foot is in contact with the ground.
 
-for coxa = 0:pi/8:pi/2  
+% for coxa = 0:pi/8:pi/2  
     %testing movement of all joints
     %coxa joints
-    joint_angles([1]) = 10;
+    joint_angles([14]) = 10*pi/180;
     %femur joints
-    joint_angles([3]) = 10;
+    joint_angles([16]) = 50*pi/180;
     %tibia joints
-    joint_angles([5]) = 10;
+    joint_angles([18]) = -50*pi/180;
     %kinematic model of the robot
     robot_model(joint_angles,joint_angles2,robot_pose,footholds)
     %plot parameters
@@ -42,4 +42,4 @@ for coxa = 0:pi/8:pi/2
     zlabel('z')
     pause(0.9)
     hold off
-end
+% end

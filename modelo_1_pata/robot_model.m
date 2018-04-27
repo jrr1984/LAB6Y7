@@ -19,9 +19,9 @@ function robot_model(joint_angles,joint_angles2, pose, footholds)
     %'k' is black color for the plot
     %'r' to identify leg #1
     %body parameters TABLE II Page 4.
-    ya = 0.0605; %p_y links 1, (-2),3, (-4)
-    yb = 0.1005; %p_y links 5,6
-    xa = 0.1206; %p_x links 1,2, (-3),(-4)
+    ya = 60.5; %p_y links 1, (-2),3, (-4)
+    yb = 100.5; %p_y links 5,6
+    xa = 120.6; %p_x links 1,2, (-3),(-4)
     body_params = [  pi/4,  xa, ya;
                    7*pi/4,  xa,-ya;
                    3*pi/4, -xa, ya;
@@ -40,7 +40,7 @@ function robot_model(joint_angles,joint_angles2, pose, footholds)
 %h_first = NaN(1,3);
 %h_first(coxa) = h(ind(1));
     %get foottip position for each leg
-   for leg = 0%:1:5
+   for leg = 0:1:5
         if footholds(leg + 1) == 0
         %transformation to coxa reference frame
         %Multiplication per P is done just in case you give some initial
@@ -63,9 +63,9 @@ function robot_model(joint_angles,joint_angles2, pose, footholds)
         % D-H notation parameters
         % [alpha, a, phi, d, phi_off]
             params = [0,    0,      joint_angles2(3*leg + 1),  0, 0;
-                  pi/2, 0.052,  joint_angles2(3*leg + 2), 0, -0.22;
-                  0,    0.066,  joint_angles2(3*leg + 3), 0, -0.807;
-                  0,    0.138,  0,      0, 0];
+                  pi/2, 52,  joint_angles2(3*leg + 2), 0, -0.22;
+                  0,    66,  joint_angles2(3*leg + 3), 0, -0.807;
+                  0,    138,  0,      0, 0];
         
         % kinematic chain for each leg using D-H notation
                 for i = 1:4
@@ -111,9 +111,9 @@ function robot_model(joint_angles,joint_angles2, pose, footholds)
         % D-H notation parameters
         % [alpha, a, phi, d, phi_off]
              params = [0,    0,      joint_angles(3*leg + 1),  0, 0;
-                   pi/2, 0.052,  joint_angles(3*leg + 2), 0, -0.22;
-                   0,    0.066,  joint_angles(3*leg + 3), 0, -0.807;
-                   0,    0.138,  0,      0, 0];
+                   pi/2, 52,  joint_angles(3*leg + 2), 0, -0.22;
+                   0,    66,  joint_angles(3*leg + 3), 0, -0.807;
+                   0,    138,  0,      0, 0];
         
         % kinematic chain for each leg using D-H notation
              for i = 1:4

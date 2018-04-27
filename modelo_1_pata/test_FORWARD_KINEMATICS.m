@@ -3,9 +3,9 @@
 syms theta1 theta2 theta3;
 syms a1 a2 a3 d5;
 syms theta1_off theta2_off theta3_off;
-theta1 = ; theta2 = 2.6376;    theta3 = 1.4158;
+theta1 = -2; theta2 = 0;    theta3 = 0;
 a1 = 52; a2 = 66; a3 = 138; %milimeters
-theta2_off = -0.22; theta3_off = -0.81;
+theta1_off =0; theta2_off = -0.22; theta3_off = -0.81;
 p1.d=0 ; p1.a=a1 ; p1.alpha=pi/2 ;p1.theta=theta1;
 p2.d=0  ; p2.a=a2  ; p2.alpha=0    ;p2.theta=theta2;
 p3.d=0  ; p3.a=a3  ; p3.alpha=0    ;p3.theta=theta3;
@@ -36,7 +36,7 @@ P_l = [cos(body_params(1,1)), -sin(body_params(1,1)) , 0 , body_params(1,2);
        0                    ,   0                  , 0 ,    1];
        
 %WE CHECK EQ (2)
-pose_final_foottip = [0,0,0,1]';
+pose_final_foottip = [0,0,0,1];
 
 pose_final_foottip_desde_TIERRA= P_l*T0_3*T3_FOOTTIP*pose_final_foottip;
 %pose_final_foottip_desde_TIERRA= P_l*T0_3*pose_final_foottip;
