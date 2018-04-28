@@ -4,7 +4,7 @@ syms theta1 theta2 theta3;
 syms a1 a2 a3 d5;
 syms theta1_off theta2_off theta3_off;
 theta1 = -2; theta2 = 0;    theta3 = 0;
-a1 = 52; a2 = 66; a3 = 138; %milimeters
+a1 = 58; a2 = 65; a3 = 133; %milimeters
 theta1_off =0; theta2_off = -0.22; theta3_off = -0.81;
 p1.d=0 ; p1.a=a1 ; p1.alpha=pi/2 ;p1.theta=theta1;
 p2.d=0  ; p2.a=a2  ; p2.alpha=0    ;p2.theta=theta2;

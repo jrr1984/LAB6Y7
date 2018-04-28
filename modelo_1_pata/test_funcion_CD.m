@@ -1,7 +1,8 @@
 clear all;
 clc;
 
-theta1 = 20*pi/180; theta2 = 100*pi/180;    theta3 = -50*pi/180;
+
+theta1 = 0*pi/180; theta2 = 60*pi/180;    theta3 = 60*pi/180;
 theta1_off = 0; theta2_off = -0.22; theta3_off = -0.81;
 a1 = 52; a2 = 66; a3 = 138;
 
@@ -19,7 +20,6 @@ p1.alpha = alpha1; p2.alpha = alpha2; p3.alpha = alpha3;
 
 p1.d = d1; p2.d = d2; p3.d = d3;
 
-pose_final_foottip = [0,0,0,1];
-input_thetas_4 = [0,0,0,1];
+pata = 6;
 
-forward_kinematics(p1,p2,p3,pose_final_foottip)
+forward_kinematics(p1,p2,p3,pata)
