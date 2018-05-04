@@ -4,7 +4,8 @@ function robot_model(joint_angles,joint_angles2, pose, footholds)
     %   joint_angles .. 1x18 matrix of joint angles for individual servos
     %   pose .. [x,y,z,qx,qy,qz,qw] TUM format pose of the whole robot
     %   footholds .. 1x6 matrix defining which legs are in support phase and which are in swing phase   
-    clrs =['m','c','y','m'];
+    
+    clrs =['m','c',[0.2,0,0],'m'];
     foottip_poses = zeros(3,6);
     %6 legs, 3 position data (x,y,z) for each leg
     %1st row = 1st leg..
@@ -19,9 +20,9 @@ function robot_model(joint_angles,joint_angles2, pose, footholds)
     %'k' is black color for the plot
     %'r' to identify leg #1
     %body parameters TABLE II Page 4.
-    ya = 0.0605; %p_y links 1, (-2),3, (-4)
-    yb = 0.1005; %p_y links 5,6
-    xa = 0.1206; %p_x links 1,2, (-3),(-4)
+    ya = 60.5; %p_y links 1, (-2),3, (-4)
+    yb = 100.5; %p_y links 5,6
+    xa = 120.6; %p_x links 1,2, (-3),(-4)
     body_params = [  pi/4,  xa, ya;
                    7*pi/4,  xa,-ya;
                    3*pi/4, -xa, ya;
@@ -58,9 +59,9 @@ function robot_model(joint_angles,joint_angles2, pose, footholds)
         % D-H notation parameters
         % [alpha, a, phi, d, phi_off]
             params = [0,    0,      joint_angles2(3*leg + 1),  0, 0;
-                  pi/2, 0.052,  joint_angles2(3*leg + 2), 0, -0.22;
-                  0,    0.066,  joint_angles2(3*leg + 3), 0, -0.807;
-                  0,    0.138,  0,      0, 0];
+                  pi/2, 52,  joint_angles2(3*leg + 2), 0, -0.22;
+                  0,    66,  joint_angles2(3*leg + 3), 0, -0.807;
+                  0,    138,  0,      0, 0];
         
         % kinematic chain for each leg using D-H notation
                 for i = 1:4
@@ -106,9 +107,9 @@ function robot_model(joint_angles,joint_angles2, pose, footholds)
         % D-H notation parameters
         % [alpha, a, phi, d, phi_off]
             params = [0,    0,      joint_angles(3*leg + 1),  0, 0;
-                  pi/2, 0.052,  joint_angles(3*leg + 2), 0, -0.22;
-                  0,    0.066,  joint_angles(3*leg + 3), 0, -0.807;
-                  0,    0.138,  0,      0, 0];
+                  pi/2, 52,  joint_angles(3*leg + 2), 0, -0.22;
+                  0,    66,  joint_angles(3*leg + 3), 0, -0.807;
+                  0,    138,  0,      0, 0];
         
         % kinematic chain for each leg using D-H notation
             for i = 1:4
@@ -126,9 +127,9 @@ function robot_model(joint_angles,joint_angles2, pose, footholds)
             z0 = Ai(1:3,1:3)*[0;0;1];
             %quiver3 plots the system coordinate frame in each link, check
             %out the definition made up of x0, y0 and z0.
-            quiver3(Ai(1,4),Ai(2,4),Ai(3,4),x0(1),x0(2),x0(3),0.05,'r','Linewidth',2);
-            quiver3(Ai(1,4),Ai(2,4),Ai(3,4),y0(1),y0(2),y0(3),0.05,'g','Linewidth',2);
-            quiver3(Ai(1,4),Ai(2,4),Ai(3,4),z0(1),z0(2),z0(3),0.05,'b','Linewidth',2);
+            quiver3(Ai(1,4),Ai(2,4),Ai(3,4),x0(1),x0(2),x0(3),25,'r','Linewidth',2);
+            quiver3(Ai(1,4),Ai(2,4),Ai(3,4),y0(1),y0(2),y0(3),25,'g','Linewidth',2);
+            quiver3(Ai(1,4),Ai(2,4),Ai(3,4),z0(1),z0(2),z0(3),25,'b','Linewidth',2);
             end
         
         %save the foottip pose
