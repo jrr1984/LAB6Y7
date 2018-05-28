@@ -30,9 +30,9 @@ footholds = [1,1,1,1,1,1];
     %coxa joints
     joint_angles([14]) = 0*pi/180; %10*pi/180;
     %femur joints
-    joint_angles([16]) = 60*pi/180;
+    joint_angles([16]) = 0*pi/180;
     %tibia joints
-    joint_angles([18]) = 60*pi/180;
+    joint_angles([18]) = 0*pi/180;
     %kinematic model of the robot
     robot_model(joint_angles,joint_angles2,robot_pose,footholds)
     %plot parameters
