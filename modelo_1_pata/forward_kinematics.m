@@ -2,7 +2,7 @@ function [ foottip_pose_from_univ_UNROTATED] = forward_kinematics(p1,p2,p3,pata)
 % FORWARD KINEMATICS
 %INPUT: P1, P2 AND P3 ARE STRUCTS THAT INDICATES THE DH PARAMETERS OF THE LTH LINK
     s = 'Theta fuera de rango!';
-    if(p1.theta < -60*pi/180 || p1.theta > 60*pi/180)
+    if(p1.theta < -90*pi/180 || p1.theta > 90*pi/180)
         disp(s)
         return;
     else

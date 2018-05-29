@@ -1,6 +1,5 @@
 function [ Thetas ] = inv_hexapodo(x,y,z,patas)
-   
-
+    
     a_i = [52,66,138];
     ya = 60.5;  %p_y links 1, (-2),3, (-4)
     yb = 100.5; %p_y links 5,6
@@ -17,18 +16,17 @@ function [ Thetas ] = inv_hexapodo(x,y,z,patas)
    
     
     for i=1:size(patas)
+         if(x<0)
+            x_aux = -x +p_x;
+            y_aux = -y + p_y;
+         else
+            x_aux = x -p_x;
+    y_aux = y -p_y;
+    end
         pata = patas(i);
         p_x = body_params(pata,2);
         p_y = body_params(pata,3);
         beta = body_params(pata,1);
-         if(x<0)
-            x_aux = - x + p_x;
-            y_aux = - y + p_y;
-         else    
-            x_aux = x - p_x;
-            y_aux = y - p_y;
-         end
-      
 
         % Calculo theta 1
         theta1(i) = atan2(y_aux,x_aux) - beta;
@@ -48,14 +46,8 @@ function [ Thetas ] = inv_hexapodo(x,y,z,patas)
         theta3(i) = -pi + acos(((a_i(2))^2 + (a_i(3))^2 - norma)/(2*a_i(2)*a_i(3))) - theta_3_off;
         
         %mostramos los angulos
-         %s = 'Theta fuera de rango!';
-        %if(theta1 < -90*pi/180 || theta1 > 90*pi/180)
-        %    disp(s)
-        %return;
-        %else
             Thetas(:,i) = [wrapToPi(theta1(i)),wrapToPi(theta2(i)),wrapToPi(theta3(i))].*180/pi;
 %         Thetas(:,i) = [theta1(i),theta2(i),theta3(i)].*180/pi;
-        %end
     end
 end
 

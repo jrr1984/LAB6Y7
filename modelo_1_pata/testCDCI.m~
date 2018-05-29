@@ -2,7 +2,7 @@
 
 % Pose Inicial y pata 
 pata = 6;
-pose = [0,0,60] * pi/180;
+pose = [20,18.4,32.81] * pi/180;
 
 % Parametros DH
 p1.theta = pose(1); p2.theta = pose(2); p3.theta = pose(3);
